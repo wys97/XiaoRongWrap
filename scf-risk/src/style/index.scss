@@ -1,0 +1,370 @@
+@import './iconfont.scss';
+@import "./variable.scss";
+@import "./mixin.scss";
+@import "./sidebar.scss";
+@import "./animation.scss";
+
+html {
+  box-sizing: border-box;
+  background-color: $backgroundColor;
+  body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  }
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }
+html,body,#app{
+  height:100%;
+}
+ul{
+  list-style: none;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+.el-tag.active .el-icon-close{ // tabs那里
+  color: #fff;
+}
+.el-dialog .el-dialog__body{
+  padding:10px 20px 0 20px;
+}
+.el-select-dropdown { // select时出现上三角
+  .popper__arrow{
+    display: none;
+  }
+}
+.suc{ // 成功颜色
+  color:$suc;
+}
+.fail{ // 失败颜色
+  color:$fail;
+}
+.draw{ // 平局颜色
+  color:$draw;
+}
+.big-text{
+  font-size: 16px;
+}
+.page-container{ // page页面
+  margin: 10px;
+  padding: 10px;
+  background: #fff;
+  height:100%;
+  .suc{ // 成功颜色
+    color:$suc;
+  }
+  .fail{ // 失败颜色
+    color:$fail;
+  }
+  .draw{ // 平局颜色
+    color:$draw;
+  }
+  .filter-container{ //查询下面的input框
+    .el-form{
+      .el-form-item{
+        margin-bottom: 5px;
+      }
+    }
+    .el-form--inline .el-form-item {
+      margin-right: 5px;
+    }
+  }
+  .operation-container{ // 功能区 增删改查等按钮
+    .operation-button{
+      margin: 0 10px 10px 0;
+    }
+  }
+  .total-container{
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  table{
+    .el-button--mini{
+      padding: 7px;
+    }
+  }
+  .pagination-container{ // table表格分页区
+    margin-top: 10px;
+  }
+  .el-date-editor .el-range-separator {
+    width: 7%;
+  }
+  .el-dialog{
+    max-height: 600px;
+    overflow-y: auto;
+    .market-types-container{
+      .el-tabs__header.is-bottom{
+        width: 100px;
+      }
+      .market-types-input{ // 高赔场玩法 新增和修改时的赔率 输入框
+        input{
+          text-align: center;
+        }
+      }
+    }
+  }
+  .game-config{
+    .el-form-item__label{
+      margin-left: 10px;
+    }
+  }
+  .config {
+    .el-form-item__label {
+      text-align: right;
+    }
+  }
+  .el-table__body tr.current-row > td,.el-table--enable-row-hover .el-table__body tr:hover>td  {
+    background-color: #91D5FF;
+  }
+}
+.el-tabs__header {
+  padding: 0;
+  position: relative;
+  margin: 0 0 0;
+}
+.el-tabs__content{
+  height: calc( 100% - 50px);
+}
+.fileInputContainer{
+  position: relative;
+  color: #fff;
+  background-color: #409eff;
+  border-color: #409eff;
+  width: 180px;
+  height:36px;
+  line-height: 36px;
+  border-radius: 4px;
+  text-align: center;
+  .el-input{
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+    &:hover{
+      cursor: pointer;
+    }
+    input{
+      &:hover{
+        cursor: pointer;
+      }
+      opacity: 0;
+    }
+  }
+}
+.send-container{ // 返水规则 发放通知
+  .el-transfer-panel{
+    width:290px;
+  }
+}
+.audit-dialog{ // 提现列表 提现稽查
+  .el-table td,.el-table th{
+    padding: 2px 0;
+  }
+}
+.el-tooltip__popper{ // q里面的tooltip
+  padding: 5px;
+}
+.el-tabs__header .el-tabs__item.is-active{ // tab-list表单样式
+  color:#fff;
+  background-color: #409eff;
+}
+.el-tabs--top .el-tabs__header .el-tabs__item.is-top:nth-child(2) {
+  padding-left: 20px;
+}
+.el-tabs--top .el-tabs__header .el-tabs__item.is-top:last-child {
+  padding-right: 20px;
+}
+.el-card__header,.el-card__body{
+  padding: 10px;
+}
+// 进度条 供应商入驻
+.el-step.is-horizontal .el-step__line{
+  top: 8px;
+}
+.el-step__icon{
+  height:8px;
+  width:8px;
+}
+.el-step__title {
+  font-size: 14px;
+  line-height: 28px;
+}
+// 上传图片
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.supplier-detail-dialog.el-dialog{ // 供应商入驻dialog弹框样式
+  margin: 0 0 0 auto;
+  animation:slideInRight 1s;
+  padding-bottom: 72px;
+  .el-dialog__header, .el-dialog__footer{
+    background: #E5E5E5;
+    border: 1px solid #bbbbbb;
+    &.el-dialog__footer{
+      position: fixed;
+      bottom:0;
+      right:0;
+      width: 600px;
+      padding:10px;
+      .dialog-footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}
+  // 重置element 默认ui
+
+// 左侧sidebar
+.el-menu-item, .el-submenu__title,.el-submenu .el-menu-item{
+  height: 40px;
+  line-height: 40px;
+}
+// input输入框
+.el-input__inner{
+  height:32px;
+  padding: 0 10px;
+  line-height: 1;
+}
+.el-date-editor .el-range__icon,.el-date-editor .el-range__close-icon,.el-date-editor .el-range-separator {
+  line-height: 24px;
+}
+// 表格
+.el-table{
+  border:1px solid $border-color;
+  border-bottom: 0;
+}
+.el-table td, .el-table th{
+  padding: 5px 0;
+}
+.router-link{
+  display: block;
+  color:#409EFF;
+}
+.router_link{
+  color:#409EFF;
+  margin-left: 10px;
+}
+.look_img_box{
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0,0,0,.5);
+}
+.look_img_img{
+    height: 96%;
+    width: 98%;
+    margin: .3% 0;
+    position: absolute;
+    transform-origin: 50% 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.look_img_img img{
+    
+}
+.rotateBtnRow{
+  position: relative;
+  top: 50%;
+  z-index: 11;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20%;
+}
+.rotateBtn{
+  display: inline-block;
+  background-color: rgba(0,0,0,0.6);
+  color: rgba(255,255,255,.8);
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 50%;
+}
+.rotateBtn i{
+  font-size: 36px;
+  margin-right: 0;
+}
+.font_w{
+    font-weight: 900;
+}
+.text_c{
+    text-align: center!important;
+}
+.must_input:before{
+    content: '*';
+    font-size: 20px;
+    color: #ff0000;
+    position: absolute;
+    left: -10px;
+    top: 6px;
+}
+
+//带下拉的表格
+
+.tb_box{
+  padding-top: 20px;
+}
+.tb_box .el-row{
+  padding-left: 20px;
+}
+.tb_box .el-radio__label{
+    color: transparent;
+}
+.el-collapse-item:last-child{
+  margin-bottom:0;
+}
+.collapse_item:last-child{
+  margin-bottom: -1px; 
+}
+.content_collapse{
+    background-color: #f0f1f5;
+    padding: 13px;
+}
+.content_collapse .el-table{
+    border: 1px solid #dddee1;
+}
+.el-table th{
+    background-color: #f0f1f5;
+}
+
+.cursor_a{
+    cursor: pointer;
+}
+.container_box{
+    padding: 30px 20px;
+}
+.container_box .title{
+    line-height: 50px;
+}
+.strategyDetail_tb_box .el-collapse-item__wrap{
+    width: 100%;
+}
